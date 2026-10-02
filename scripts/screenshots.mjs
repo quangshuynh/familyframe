@@ -1,7 +1,7 @@
 /**
  * Captures the README screenshots from a running preview server:
  * desktop and mobile first viewports, the before/after gallery, the
- * "My approach" section, and a full-page desktop JPEG.
+ * "My approach" and "How it works" sections, and a full-page desktop JPEG.
  *
  *   npm run build && npm run preview      # in one terminal
  *   npm run screenshots                   # in another
@@ -116,6 +116,9 @@ await desktop.screenshot({
 
 // "My approach": the whole paper section, desktop.
 await desktop.locator('.philosophy').screenshot({ path: file('familyframe-approach') });
+
+// "How it works": the four-step process panel with the payment note, desktop.
+await desktop.locator('.process__panel').screenshot({ path: file('familyframe-process') });
 
 // Mobile: first viewport at 2x
 const mobile = await page({ width: 390, height: 844 }, { mobile: true, scale: 2 });
