@@ -1,39 +1,61 @@
+/* One frame for both panels: the restored photo's aspect ratio. Override --frame to recrop the pair. */
 .diptych {
+  --frame: 3 / 4;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
   gap: 8px;
+}
+
+.diptych--landscape {
+  --frame: 4 / 3;
 }
 
 .diptych__panel {
   position: relative;
   overflow: hidden;
+  aspect-ratio: var(--frame);
   border-radius: var(--radius-card);
   background: var(--surface);
 }
 
+.diptych__panel picture {
+  display: contents;
+}
+
+/* Absolutely filled, so the panel size never depends on the photo's own dimensions. */
 .diptych__img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.diptych--portrait .diptych__img {
-  aspect-ratio: 3 / 4;
-}
-
-.diptych--landscape .diptych__img {
-  aspect-ratio: 4 / 3;
 }
 
 .diptych__label {
   position: absolute;
   top: 10px;
   left: 10px;
+  z-index: 1;
+  max-width: calc(100% - 20px);
   padding: 5px 10px;
   border-radius: 999px;
   font-size: 0.75rem;
   font-weight: 500;
   line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: var(--paper);
   background: rgba(22, 20, 18, 0.74);
+}
+
+@media (max-width: 400px) {
+  .diptych__label {
+    top: 8px;
+    left: 8px;
+    max-width: calc(100% - 16px);
+    padding: 4px 8px;
+    font-size: 0.6875rem;
+  }
 }

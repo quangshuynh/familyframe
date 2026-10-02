@@ -72,19 +72,25 @@ public/restorations/<pair-id>/{before,after}-<width>.{avif,webp}
 
 ## Adding before/after images
 
-1. Put the full-resolution pair in `src/assets/images/before/<id>.png` and `src/assets/images/after/<id>.png`. Both should share the same framing and size (portrait 1086×1448 or landscape 1448×1086 today). Add the entry to `src/assets/images/manifest.json`.
+1. Put the full-resolution pair in `src/assets/images/before/<id>.png` and `src/assets/images/after/<id>.png`. The restoration should be portrait 1086×1448 or landscape 1448×1086; the original can be any size (crop it to the physical print, not the table around it). Add the entry to `src/assets/images/manifest.json`.
 2. Run `npm run images`. This writes AVIF + WebP variants at 480/768/1080 (and 1440 for landscape) to `public/restorations/<id>/`.
 3. Add the pair to `src/data/restorations.ts`:
 
    ```ts
-   { id: '28_new_photo', category: 'blackWhite', orientation: 'portrait', aligned: true, objectPosition: '50% 30%' }
+   { id: '28_new_photo', category: 'blackWhite', orientation: 'portrait', presentation: 'slider', align: { scale: 1.02, x: 1.5, y: -3 } }
    ```
 
-   - `aligned: true` means the two images line up, so a comparison slider is used. Use `false` for skewed phone snapshots of prints; those are shown side by side.
-   - `objectPosition` controls cropping when a frame is not the photo's own ratio.
+   - `presentation: 'slider'` only when the two photos line up spatially; otherwise `'pair'` shows them as two equal panels side by side.
+   - `align` registers the original onto the restoration in a slider: scale about the centre, then shift by x / y percent of the frame. Leave it out when the photos already match.
+   - `afterPosition` / `beforePosition` (e.g. `'50% 30%'`) set the crop focus when a frame crops a photo. Both panels always use the restored photo's frame, so an original with a different shape is cropped to it.
+   - `techniques` (max 3) adds chips such as `recrop` or `objectRemoval`; labels live under `gallery.techniques` in each locale.
 
-4. Add a `title` and `alt` for the id under `pairs` in **all four** locale files. The tests fail if one is missing.
+4. Add a `title` and `alt` for the id under `pairs` in **all four** locale files, plus an optional `description` of the work done. The tests fail if one is missing.
 5. Place it on the page by adding the id to a slot in `layout` in the same file (`featureRows`, `immersive`, `rephotographed`, `more`, ...).
+
+### Replacing a source image
+
+Overwrite the PNG in `before/` or `after/` and run `npm run images`. Each source is hashed (with the encoder settings) into `src/assets/images/derivatives.json`, so only changed or missing images are re-encoded. `npm run images -- --dry-run` lists what would change, `--only=<id>[,<id>]` forces specific pairs and `--force` rebuilds everything. Commit `derivatives.json` along with the new variants.
 
 The full-resolution PNGs (~245 MB, with `pairs/` duplicating `before/` + `after/`) are git-ignored; only the optimized variants are committed. Keep the originals backed up elsewhere.
 
@@ -128,7 +134,7 @@ To switch to a form or upload service later, change `emailHref` / the buttons in
 
 - Prerendered HTML with inlined CSS; only the hero images are preloaded and loaded eagerly
 - AVIF/WebP `srcset` with `sizes`, explicit dimensions, and `loading="lazy"` everywhere else
-- Lighthouse (local production build): desktop 99 performance, 100 accessibility, 100 best practices, 100 SEO. Mobile (simulated slow 4G) 83 / 100 / 100 / 100.
+- Lighthouse (local production build): desktop 99 performance, 100 accessibility, 100 best practices, 100 SEO. Mobile (simulated slow 4G) 82–83 / 100 / 100 / 100.
 
 ## Known limitations
 

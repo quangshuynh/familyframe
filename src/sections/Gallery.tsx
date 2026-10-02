@@ -3,7 +3,7 @@ import { BeforeAfterSlider } from '../components/BeforeAfterSlider';
 import { ExpandIcon } from '../components/icons';
 import { Lightbox } from '../components/Lightbox';
 import { PairDiptych } from '../components/PairDiptych';
-import { Picture } from '../components/Picture';
+import { TechniqueList } from '../components/TechniqueList';
 import { SECTION_IDS } from '../config/sections';
 import { galleryOrder, layout, type Restoration } from '../data/restorations';
 import { format } from '../i18n/config';
@@ -17,11 +17,14 @@ export function Gallery() {
 
   const open = (item: Restoration) => setOpenIndex(galleryOrder.indexOf(item));
   const moreItems = showAll ? layout.more : layout.more.slice(0, layout.moreInitial);
-  const meta = (item: Restoration) => (
-    <figcaption className="gallery__meta">
-      <span className="gallery__category">{t.gallery.categories[item.category]}</span>
-      <span className="gallery__title">{t.pairs[item.id].title}</span>
-    </figcaption>
+  const meta = (item: Restoration, Tag: 'figcaption' | 'div' = 'figcaption') => (
+    <Tag className="gallery__meta">
+      <span className="gallery__meta-line">
+        <span className="gallery__category">{t.gallery.categories[item.category]}</span>
+        <span className="gallery__title">{t.pairs[item.id].title}</span>
+      </span>
+      <TechniqueList item={item} />
+    </Tag>
   );
 
   return (
@@ -87,12 +90,13 @@ export function Gallery() {
             <h3 className="heading">{t.gallery.rephoto.title}</h3>
             <p className="muted">{t.gallery.rephoto.body}</p>
           </div>
-          <ul role="list" className="gallery__rephoto-list">
+          {/* One list item per pair, so on phones the carousel scrolls pair by pair. */}
+          <ul role="list" className="gallery__rephoto-list" data-reveal>
             {layout.rephotographed.map((item) => (
-              <li key={item.id} className="gallery__rephoto-item" data-reveal>
+              <li key={item.id} className="gallery__rephoto-item">
                 <PairDiptych
                   item={item}
-                  sizes="(min-width: 1024px) 15vw, (min-width: 640px) 30vw, 50vw"
+                  sizes="(min-width: 900px) 15vw, (min-width: 640px) 23vw, 42vw"
                 />
                 {/* Overlay button: its name isn't contradicted by the visible photo labels. */}
                 <button
@@ -107,48 +111,32 @@ export function Gallery() {
           </ul>
         </div>
 
-        {/* More examples: compact cards with the original inset like a print. */}
+        {/* More examples: each card is one original + restored pair in a shared frame. */}
         <div className="gallery__more">
           <h3 className="heading gallery__more-title">{t.gallery.more.title}</h3>
           <ul role="list" className="gallery__grid" id="gallery-more">
             {moreItems.map((item) => (
               <li key={item.id} className={`gallery__card gallery__card--${item.orientation}`}>
-                <button
-                  type="button"
-                  className="gallery__card-button"
-                  onClick={() => open(item)}
-                  aria-label={format(t.gallery.open, { title: t.pairs[item.id].title })}
-                >
-                  <span className="gallery__card-media">
-                    <Picture
-                      item={item}
-                      kind="after"
-                      alt=""
-                      sizes={
-                        item.orientation === 'landscape'
-                          ? '(min-width: 900px) 50vw, 100vw'
-                          : '(min-width: 900px) 25vw, 50vw'
-                      }
-                      className="gallery__card-img"
-                    />
-                    <span className="gallery__card-inset">
-                      <Picture
-                        item={item}
-                        kind="before"
-                        alt=""
-                        sizes="120px"
-                        className="gallery__card-inset-img"
-                      />
-                    </span>
-                    <span className="gallery__card-expand" aria-hidden="true">
-                      <ExpandIcon size={16} />
-                    </span>
+                <div className="gallery__card-media">
+                  <PairDiptych
+                    item={item}
+                    sizes={
+                      item.orientation === 'landscape'
+                        ? '(min-width: 1360px) 640px, (min-width: 900px) 47vw, 50vw'
+                        : '(min-width: 1360px) 320px, (min-width: 900px) 24vw, 50vw'
+                    }
+                  />
+                  <button
+                    type="button"
+                    className="gallery__overlay-button"
+                    onClick={() => open(item)}
+                    aria-label={format(t.gallery.open, { title: t.pairs[item.id].title })}
+                  />
+                  <span className="gallery__card-expand" aria-hidden="true">
+                    <ExpandIcon size={16} />
                   </span>
-                </button>
-                <div className="gallery__meta">
-                  <span className="gallery__category">{t.gallery.categories[item.category]}</span>
-                  <span className="gallery__title">{t.pairs[item.id].title}</span>
                 </div>
+                {meta(item, 'div')}
               </li>
             ))}
           </ul>

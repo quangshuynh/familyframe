@@ -6,7 +6,13 @@ import {
   type KeyboardEvent,
   type PointerEvent,
 } from 'react';
-import type { Restoration } from '../data/restorations';
+import {
+  FRAME_RATIO,
+  objectPosition,
+  positionFractions,
+  sliderTransforms,
+  type Restoration,
+} from '../data/restorations';
 import { format } from '../i18n/config';
 import { useI18n } from '../i18n/context';
 import { ExpandIcon } from './icons';
@@ -25,7 +31,11 @@ type Props = {
   /** When provided, renders an expand button that opens a larger view. */
   onExpand?: () => void;
   className?: string;
-  /** Optional CSS aspect-ratio override, e.g. "16 / 9". Defaults to the photo's own ratio. */
+  /**
+   * Optional CSS aspect-ratio override, e.g. "16 / 9". Defaults to the restored
+   * photo's own ratio. A different ratio crops both photos together around
+   * `afterPosition`, so they stay registered.
+   */
   aspectRatio?: string;
 };
 
@@ -62,7 +72,10 @@ export function BeforeAfterSlider({
   const gesture = useRef<{ id: number; x: number; y: number; moved: boolean } | null>(null);
 
   const pair = t.pairs[item.id];
-  const ratio = aspectRatio ?? (item.orientation === 'landscape' ? '4 / 3' : '3 / 4');
+  const nativeRatio = FRAME_RATIO[item.orientation];
+  const ratio = aspectRatio ?? String(nativeRatio);
+  const [focusX, focusY] = positionFractions(objectPosition(item, 'after'));
+  const align = sliderTransforms(item.align);
 
   const positionFromClientX = useCallback((clientX: number) => {
     const rect = frameRef.current?.getBoundingClientRect();
@@ -126,7 +139,14 @@ export function BeforeAfterSlider({
   };
 
   const rounded = Math.round(position);
-  const style = { '--pos': `${position}%`, aspectRatio: ratio } as CSSProperties;
+  const style = {
+    '--pos': `${position}%`,
+    '--ratio': nativeRatio,
+    '--focus-x': focusX,
+    '--focus-y': focusY,
+    '--zoom': align.zoom,
+    aspectRatio: ratio,
+  } as CSSProperties;
 
   return (
     <div className={['compare', className].filter(Boolean).join(' ')}>
@@ -139,23 +159,28 @@ export function BeforeAfterSlider({
         onPointerUp={(e) => endGesture(e, true)}
         onPointerCancel={(e) => endGesture(e, false)}
       >
-        <Picture
-          item={item}
-          kind="before"
-          alt={`${t.compare.before}: ${pair.alt}`}
-          sizes={sizes}
-          priority={priority}
-          className="compare__img"
-        />
-        <div className="compare__after">
+        <div className="compare__layer">
           <Picture
             item={item}
-            kind="after"
-            alt={`${t.compare.after}: ${pair.alt}`}
+            kind="before"
+            alt={`${t.compare.before}: ${pair.alt}`}
             sizes={sizes}
             priority={priority}
             className="compare__img"
+            style={align.before ? { transform: align.before } : undefined}
           />
+        </div>
+        <div className="compare__after">
+          <div className="compare__layer">
+            <Picture
+              item={item}
+              kind="after"
+              alt={`${t.compare.after}: ${pair.alt}`}
+              sizes={sizes}
+              priority={priority}
+              className="compare__img"
+            />
+          </div>
         </div>
 
         <span

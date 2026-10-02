@@ -1,4 +1,10 @@
-import { imageSources, type ImageKind, type Restoration } from '../data/restorations';
+import type { CSSProperties } from 'react';
+import {
+  imageSources,
+  objectPosition,
+  type ImageKind,
+  type Restoration,
+} from '../data/restorations';
 
 type Props = {
   item: Restoration;
@@ -8,10 +14,12 @@ type Props = {
   className?: string;
   /** Hero only: load eagerly with high fetch priority. */
   priority?: boolean;
+  /** Extra inline style, e.g. the slider's alignment transform. */
+  style?: CSSProperties;
 };
 
 /** Responsive AVIF/WebP picture with intrinsic size to prevent layout shift. */
-export function Picture({ item, kind, alt, sizes, className, priority = false }: Props) {
+export function Picture({ item, kind, alt, sizes, className, priority = false, style }: Props) {
   const src = imageSources(item, kind);
   return (
     <picture>
@@ -27,7 +35,7 @@ export function Picture({ item, kind, alt, sizes, className, priority = false }:
         decoding={priority ? 'sync' : 'async'}
         fetchPriority={priority ? 'high' : 'auto'}
         draggable={false}
-        style={item.objectPosition ? { objectPosition: item.objectPosition } : undefined}
+        style={{ objectPosition: objectPosition(item, kind), ...style }}
       />
     </picture>
   );

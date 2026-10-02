@@ -9,7 +9,11 @@ type Props = {
   className?: string;
 };
 
-/** Original and restoration side by side, each with its own label. */
+/**
+ * Original and restoration as one pair: two panels sharing the restored
+ * photo's frame, so both have the same width, height and label position
+ * whatever the original's own dimensions are.
+ */
 export function PairDiptych({ item, sizes, className }: Props) {
   const { t } = useI18n();
   const pair = t.pairs[item.id];

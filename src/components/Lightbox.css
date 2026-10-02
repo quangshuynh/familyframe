@@ -91,10 +91,36 @@
   color: var(--muted);
 }
 
-/* Fit the photo inside the viewport while keeping its aspect ratio. */
+.lightbox__heading {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.lightbox__description {
+  max-width: 44em;
+  margin-top: 4px;
+  font-size: var(--text-small);
+  line-height: 1.5;
+  color: var(--text-soft);
+}
+
+.lightbox__techniques {
+  margin-top: 8px;
+}
+
+/*
+ * Fit the pair inside the viewport. Sliders keep one frame; paired panels
+ * sit side by side, and stack on narrow screens. --chrome is the height of
+ * the title and navigation rows.
+ */
 .lightbox__media {
   --chrome: 190px;
   width: min(100%, 1100px);
+}
+
+.lightbox__media--detailed {
+  --chrome: 270px;
 }
 
 .lightbox__media--landscape {
@@ -111,6 +137,24 @@
 
 .lightbox__media--pair.lightbox__media--landscape {
   width: min(100%, 1100px, calc((100dvh - var(--chrome)) * 8 / 3));
+}
+
+@media (max-width: 639px) {
+  .lightbox__media--detailed {
+    --chrome: 330px;
+  }
+
+  .lightbox__diptych {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .lightbox__media--pair.lightbox__media--portrait {
+    width: min(100%, calc((100dvh - var(--chrome) - 8px) / 2 * 3 / 4));
+  }
+
+  .lightbox__media--pair.lightbox__media--landscape {
+    width: min(100%, calc((100dvh - var(--chrome) - 8px) / 2 * 4 / 3));
+  }
 }
 
 .lightbox__media .compare__frame {

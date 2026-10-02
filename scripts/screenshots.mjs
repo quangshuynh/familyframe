@@ -94,18 +94,20 @@ await desktop.screenshot({
   quality: 72,
 });
 
-// Before/after gallery, desktop (top of the section: feature rows and immersive example)
-const gallery = desktop.locator('#truoc-va-sau');
+// Before/after pairs, desktop: the "More examples" grid, where every card is
+// one original + restored pair sharing a frame.
+const pairs = desktop.locator('.gallery__more');
+await desktop.addStyleTag({ content: '.site-header { visibility: hidden !important; }' });
 await desktop.screenshot({
   path: file('familyframe-before-after'),
   fullPage: true,
-  clip: await gallery.evaluate((el) => {
+  clip: await pairs.evaluate((el) => {
     const r = el.getBoundingClientRect();
     return {
       x: 0,
       y: r.top + window.scrollY,
       width: window.innerWidth,
-      height: Math.min(r.height, 2200),
+      height: Math.min(r.height, 1900),
     };
   }),
 });

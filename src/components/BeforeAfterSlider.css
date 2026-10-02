@@ -15,10 +15,32 @@
   -webkit-user-select: none;
   -webkit-tap-highlight-color: transparent;
   isolation: isolate;
+  /* Lets each layer size itself against the frame with cq units. */
+  container-type: size;
 }
 
 .compare__frame picture {
   display: contents;
+}
+
+/*
+ * Both photos sit in identical layers: a box with the restored photo's own
+ * ratio that covers the frame (like object-fit: cover) around --focus-x/y.
+ * Cropping the frame therefore crops both photos the same way, and the
+ * original's alignment transform is always relative to the restored frame.
+ */
+.compare__layer {
+  --layer-w: max(100cqw, 100cqh * var(--ratio));
+  --layer-h: calc(var(--layer-w) / var(--ratio));
+  position: absolute;
+  left: calc((100cqw - var(--layer-w)) * var(--focus-x));
+  top: calc((100cqh - var(--layer-h)) * var(--focus-y));
+  width: var(--layer-w);
+  height: var(--layer-h);
+  overflow: hidden;
+  transform: scale(var(--zoom, 1));
+  transform-origin: center;
+  pointer-events: none;
 }
 
 .compare__img {
