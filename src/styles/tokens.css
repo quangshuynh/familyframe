@@ -1,0 +1,95 @@
+/*
+ * FamilyFrame design tokens.
+ * A dark, warm "archive" palette: photographs provide most of the color.
+ */
+:root {
+  /* Color */
+  --bg: #161412;
+  --bg-deep: #100e0d;
+  --surface: #1f1c19;
+  --surface-2: #28231f;
+  --surface-3: #332d28;
+  --paper: #f5f1e8;
+  --paper-2: #ebe4d6;
+  --text: var(--paper);
+  --text-soft: rgba(245, 241, 232, 0.82);
+  --muted: #aaa196;
+  --border: rgba(245, 241, 232, 0.1);
+  --border-strong: rgba(245, 241, 232, 0.2);
+  --accent: #a94742;
+  --accent-hover: #933b37;
+  --accent-deep: #6f2a27;
+  --accent-light: #d48c84;
+  --ink: #221b17;
+  --ink-soft: #4d423b;
+  --focus: #e9b8a8;
+
+  /* Type */
+  --font-sans:
+    'Be Vietnam Pro', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, sans-serif;
+  --text-display: clamp(2.75rem, 1.6rem + 3.2vw, 4.5rem);
+  --text-section: clamp(2.125rem, 1.35rem + 2.5vw, 3.5rem);
+  --text-heading: clamp(1.5rem, 1.2rem + 0.9vw, 2.125rem);
+  --text-card: 1.25rem;
+  --text-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  --tracking-display: -0.035em;
+  --tracking-section: -0.03em;
+  --tracking-heading: -0.015em;
+  --leading-display: 1.06;
+  --leading-section: 1.08;
+
+  /* Shape */
+  --radius-panel: 32px;
+  --radius-card: 16px;
+  --radius-button: 12px;
+  --radius-pill: 999px;
+
+  /* Layout */
+  --container: 1280px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --section-space: clamp(64px, 5rem + 4vw, 144px);
+  --header-height: 72px;
+
+  /* Elevation */
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(0, 0, 0, 0.18);
+  --shadow-lift: 0 24px 60px -24px rgba(0, 0, 0, 0.6);
+  --shadow-wine: 0 32px 64px -20px rgba(70, 18, 16, 0.55);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 160ms;
+  --dur-med: 320ms;
+  --dur-slow: 700ms;
+}
+
+/* CJK: system fonts, no negative tracking, a little more line height. */
+:root:lang(zh-Hant) {
+  --font-sans:
+    'Be Vietnam Pro', 'PingFang HK', 'PingFang TC', 'Noto Sans HK', 'Noto Sans TC',
+    'Microsoft JhengHei', 'Heiti TC', sans-serif;
+}
+
+:root:lang(zh-Hans) {
+  --font-sans:
+    'Be Vietnam Pro', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', 'Heiti SC', sans-serif;
+}
+
+:root:lang(zh-Hant),
+:root:lang(zh-Hans) {
+  --tracking-display: 0;
+  --tracking-section: 0;
+  --tracking-heading: 0;
+  --leading-display: 1.18;
+  --leading-section: 1.2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-med: 0ms;
+    --dur-slow: 0ms;
+  }
+}

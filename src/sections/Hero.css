@@ -1,0 +1,98 @@
+.hero {
+  position: relative;
+  padding-top: calc(var(--header-height) + clamp(40px, 6vw, 88px));
+  padding-bottom: clamp(56px, 7vw, 112px);
+  overflow: hidden;
+}
+
+/* A faint warm glow behind the photo, like light on a print. */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: -20% -10% auto 30%;
+  height: 90%;
+  background: radial-gradient(closest-side, rgba(169, 71, 66, 0.16), transparent 70%);
+  pointer-events: none;
+}
+
+.hero__grid {
+  position: relative;
+  display: grid;
+  gap: clamp(40px, 5vw, 72px);
+  align-items: center;
+}
+
+.hero__copy {
+  display: grid;
+  gap: 24px;
+  justify-items: start;
+}
+
+.hero__title {
+  max-width: 13em;
+}
+
+:lang(zh-Hant) .hero__title,
+:lang(zh-Hans) .hero__title {
+  max-width: 9em;
+}
+
+.hero__lead {
+  max-width: 34em;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.hero__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0 0;
+}
+
+.hero__media {
+  position: relative;
+}
+
+.hero__media .compare__frame {
+  box-shadow: var(--shadow-lift);
+}
+
+.hero__caption {
+  margin-top: 14px;
+  font-size: var(--text-small);
+  color: var(--muted);
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    min-height: min(100vh, 960px);
+    display: grid;
+    align-items: center;
+  }
+
+  .hero__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
+  }
+}
+
+@media (max-width: 1023px) {
+  .hero__media {
+    max-width: 760px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero__actions {
+    display: grid;
+    width: 100%;
+  }
+  .hero__actions .button {
+    width: 100%;
+  }
+}

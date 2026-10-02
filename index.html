@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FamilyFrame — Phục hồi & tô màu ảnh gia đình cũ</title>
+    <meta
+      name="description"
+      content="Phục hồi, tô màu và số hóa ảnh gia đình cũ. Biến ảnh đen trắng, ảnh phai màu và ảnh giấy thành file kỹ thuật số rõ đẹp để lưu giữ lâu dài."
+    />
+    <meta name="theme-color" content="#161412" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="FamilyFrame" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="zh_HK" />
+    <meta property="og:locale:alternate" content="zh_CN" />
+    <meta property="og:title" content="FamilyFrame — Phục hồi & tô màu ảnh gia đình cũ" />
+    <meta
+      property="og:description"
+      content="Phục hồi, tô màu và số hóa ảnh gia đình cũ. Biến ảnh đen trắng, ảnh phai màu và ảnh giấy thành file kỹ thuật số rõ đẹp để lưu giữ lâu dài."
+    />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!--site-url-->
+
+    <link
+      rel="preload"
+      as="image"
+      type="image/avif"
+      imagesrcset="/restorations/17_wedding_closeup/after-480.avif 480w, /restorations/17_wedding_closeup/after-768.avif 768w, /restorations/17_wedding_closeup/after-1080.avif 1080w, /restorations/17_wedding_closeup/after-1440.avif 1440w"
+      imagesizes="(min-width: 1024px) 58vw, 100vw"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      type="image/avif"
+      imagesrcset="/restorations/17_wedding_closeup/before-480.avif 480w, /restorations/17_wedding_closeup/before-768.avif 768w, /restorations/17_wedding_closeup/before-1080.avif 1080w, /restorations/17_wedding_closeup/before-1440.avif 1440w"
+      imagesizes="(min-width: 1024px) 58vw, 100vw"
+      fetchpriority="high"
+    />
+    <script>
+      // Apply a saved locale to <html lang> before first paint (the content follows on hydration).
+      try {
+        var saved = localStorage.getItem('familyframe.locale');
+        if (saved === 'en' || saved === 'zh-Hant' || saved === 'zh-Hans')
+          document.documentElement.lang = saved;
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"><!--app-html--></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

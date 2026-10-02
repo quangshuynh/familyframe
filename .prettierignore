@@ -1,0 +1,7 @@
+dist
+dist-ssr
+public
+node_modules
+src/assets/images
+package-lock.json
+docs/screenshots

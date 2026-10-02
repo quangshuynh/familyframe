@@ -1,0 +1,115 @@
+.philosophy {
+  color: var(--ink);
+  background: var(--paper);
+  /* Subtle paper grain via layered gradients, no image request. */
+  background-image:
+    radial-gradient(rgba(34, 27, 23, 0.035) 1px, transparent 1px),
+    radial-gradient(rgba(34, 27, 23, 0.025) 1px, transparent 1px);
+  background-size:
+    3px 3px,
+    5px 5px;
+  background-position:
+    0 0,
+    1px 2px;
+}
+
+.philosophy ::selection {
+  background: rgba(169, 71, 66, 0.3);
+  color: var(--ink);
+}
+
+.philosophy :focus-visible {
+  outline-color: var(--accent);
+}
+
+.philosophy__eyebrow {
+  color: var(--accent);
+}
+
+.philosophy__grid {
+  display: grid;
+  gap: clamp(40px, 5vw, 64px);
+}
+
+.philosophy__intro {
+  display: grid;
+  gap: 22px;
+  align-content: start;
+}
+
+.philosophy__body {
+  font-size: var(--text-lead);
+  line-height: 1.65;
+  color: var(--ink-soft);
+  max-width: 34em;
+}
+
+.philosophy__media {
+  align-self: start;
+}
+
+.philosophy__diptych .diptych__panel {
+  border-radius: var(--radius-card);
+  box-shadow: 0 18px 40px -20px rgba(34, 27, 23, 0.45);
+}
+
+.philosophy__caption {
+  margin-top: 12px;
+  font-size: var(--text-small);
+  color: var(--ink-soft);
+}
+
+.philosophy__notes-title {
+  margin-bottom: 8px;
+  font-size: var(--text-small);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+
+.philosophy__list {
+  display: grid;
+  margin: 0;
+}
+
+.philosophy__note {
+  display: grid;
+  gap: 6px;
+  padding-block: 20px;
+  border-top: 1px solid rgba(34, 27, 23, 0.14);
+}
+
+.philosophy__note dt {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-heading);
+}
+
+.philosophy__note dd {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+@media (min-width: 1024px) {
+  .philosophy__grid {
+    grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+    /* Intro takes its natural height; the notes absorb the image's extra height. */
+    grid-template-rows: auto 1fr;
+    column-gap: clamp(48px, 6vw, 96px);
+  }
+
+  .philosophy__notes {
+    align-self: start;
+  }
+
+  .philosophy__media {
+    grid-row: span 2;
+    grid-column: 2;
+    grid-row-start: 1;
+  }
+
+  .philosophy__diptych {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+}
