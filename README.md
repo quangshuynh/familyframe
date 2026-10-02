@@ -108,10 +108,10 @@ Plan names, units, summaries and feature lists are in each locale under `pricing
 
 ## Contact CTA
 
-There is no upload backend yet. Every "Gửi ảnh" button scrolls to the contact section. Its main button opens an email draft with a subject and short template in the visitor's language. Configure it in `.env`:
+There is no upload backend yet. Every "Gửi ảnh" button scrolls to the contact section. Its main button opens an email draft to `quang@quanghuynh.com` with a subject and body in the visitor's language. The copy lives in each locale under `contact.emailSubject` / `contact.emailBody`, and `buildMailtoHref` in `src/lib/mailto.ts` encodes it. Optional overrides in `.env`:
 
 ```bash
-VITE_CONTACT_EMAIL=hello@example.com      # recipient; empty opens a draft with no recipient
+VITE_CONTACT_EMAIL=hello@example.com      # recipient; empty uses quang@quanghuynh.com
 VITE_CONTACT_ZALO_URL=https://zalo.me/... # optional, button shown only when set
 VITE_CONTACT_MESSENGER_URL=https://m.me/... # optional
 VITE_SITE_URL=https://familyframe.example # adds canonical, og:url and absolute og:image

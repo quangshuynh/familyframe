@@ -32,7 +32,7 @@ const en: Dictionary = {
     eyebrow: 'Family photo restoration',
     title: 'Keep the photos that can never be taken twice.',
     lead: 'Restoration, colorization and digitization for old family photos: black-and-white prints, faded colors, and paper photos worn by the years.',
-    ctaPrimary: 'Send a photo for a preview',
+    ctaPrimary: 'Send photos for review',
     ctaSecondary: 'See before & after',
     chipsLabel: 'Main services',
     chips: ['Black-and-white colorization', 'Fading & scratch repair', 'Print digitization'],
@@ -292,7 +292,7 @@ const en: Dictionary = {
   },
   philosophy: {
     eyebrow: 'My approach',
-    title: 'Keep the old photo. Don’t turn it into a new one.',
+    title: ['Keep the old photo.', 'Don’t turn it into a new one.'],
     body: 'The goal is not to make a photo look like it was taken today. I try to keep the faces, composition, clothing and feeling of the original, while making it clean, clear and easier to preserve.',
     notesTitle: 'Good to know',
     notes: [
@@ -302,11 +302,11 @@ const en: Dictionary = {
       },
       {
         title: 'Some colors can’t be known for sure',
-        body: 'The exact color of a shirt or a wall is sometimes impossible to know. If your family remembers, just tell me and I will match it.',
+        body: 'The exact color of a shirt or a wall is sometimes impossible to know. If your family remembers, tell me and I can match it.',
       },
       {
         title: 'Heavy damage needs interpretation',
-        body: 'Where a photo is torn or missing, detail is redrawn from what remains. I will point out those areas to you beforehand.',
+        body: 'Where a photo is torn or missing, some detail may need to be reconstructed from what remains. I’ll point out those areas beforehand.',
       },
     ],
   },
@@ -374,15 +374,15 @@ const en: Dictionary = {
     eyebrow: 'Contact',
     title: 'Is there a photo you want to keep?',
     lead: 'Send it to me. I will look at it first and tell you how it can be restored.',
-    cta: 'Send a photo for a preview',
+    cta: 'Send photos for review',
     reassurance:
       'No need to decide anything yet. I quote first, then you choose whether to go ahead.',
     attachNote: 'Attach the photo to your email. A clear phone picture is enough.',
     zalo: 'Message on Zalo',
     messenger: 'Message on Messenger',
-    emailSubject: 'Photo for a preview (FamilyFrame)',
+    emailSubject: 'FamilyFrame photo restoration inquiry',
     emailBody:
-      'Hello,\n\nI would like to restore a family photo and have attached it to this email.\n\nI would like: colorization / restoration / digitization / not sure\nAnything else to know (clothing colors, details to keep...):\n\nThank you.',
+      'Hi Quang,\n\nI would like to have some old family photos restored. I will attach the photos to this email.\n\nCould you let me know what can be restored and the estimated price before starting?\n\nThank you!',
   },
   footer: {
     tagline: 'Restoring, colorizing and digitizing old family photos.',
