@@ -1,0 +1,92 @@
+.contact__panel {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-panel);
+  background: var(--surface);
+  box-shadow: var(--shadow-lift);
+}
+
+.contact__copy {
+  display: grid;
+  gap: 22px;
+  align-content: center;
+  justify-items: start;
+  padding: clamp(28px, 5vw, 72px);
+}
+
+.contact__title {
+  max-width: 12em;
+}
+
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.contact__notes {
+  display: grid;
+  gap: 8px;
+  margin: 4px 0 0;
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+
+.contact__notes li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.contact__notes li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--accent-light);
+  opacity: 0.8;
+}
+
+.contact__email a {
+  color: var(--paper);
+  text-underline-offset: 4px;
+}
+
+.contact__media {
+  position: relative;
+  min-height: 320px;
+  background: var(--surface-2);
+}
+
+.contact__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 1024px) {
+  .contact__panel {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    min-height: 620px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .contact__media {
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .contact__actions,
+  .contact__cta {
+    width: 100%;
+  }
+}

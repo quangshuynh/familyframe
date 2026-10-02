@@ -141,3 +141,10 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# FamilyFrame
+dist-ssr
+# Full-resolution PNG originals (~245 MB) stay local; optimized variants live in public/restorations.
+src/assets/images/before/
+src/assets/images/after/
+src/assets/images/pairs/

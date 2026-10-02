@@ -1,0 +1,134 @@
+.pricing__plans {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+}
+
+@media (min-width: 900px) {
+  .pricing__plans {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+.pricing__plan > article {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: clamp(24px, 3vw, 36px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+}
+
+/* The bundle is set on paper: warmer, not louder. */
+.pricing__plan--highlight > article {
+  border-color: transparent;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: var(--shadow-wine);
+}
+
+.pricing__name {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--accent-light);
+}
+
+.pricing__plan--highlight .pricing__name {
+  color: var(--accent);
+}
+
+.pricing__price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  margin-top: 18px;
+}
+
+.pricing__amount {
+  font-size: clamp(2.5rem, 2rem + 1.6vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  font-variant-numeric: tabular-nums;
+}
+
+.pricing__unit {
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.pricing__plan--highlight .pricing__unit,
+.pricing__plan--highlight .pricing__features-label {
+  color: var(--ink-soft);
+}
+
+.pricing__summary {
+  margin-top: 14px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-soft);
+}
+
+.pricing__plan--highlight .pricing__summary {
+  color: var(--ink);
+  border-color: rgba(34, 27, 23, 0.14);
+}
+
+.pricing__features-label {
+  margin-top: 22px;
+  font-size: var(--text-small);
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.pricing__features {
+  display: grid;
+  gap: 10px;
+  margin: 12px 0 0;
+}
+
+.pricing__features li {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  line-height: 1.5;
+}
+
+.pricing__features svg {
+  margin-top: 4px;
+  color: var(--accent-light);
+}
+
+.pricing__plan--highlight .pricing__features svg {
+  color: var(--accent);
+}
+
+.pricing__assurance {
+  display: grid;
+  gap: 20px;
+  align-items: center;
+  margin-top: 20px;
+  padding: clamp(24px, 3vw, 32px) clamp(24px, 3vw, 36px);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-card);
+}
+
+.pricing__assurance-title {
+  margin-bottom: 6px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-heading);
+}
+
+@media (min-width: 768px) {
+  .pricing__assurance {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 32px;
+  }
+}

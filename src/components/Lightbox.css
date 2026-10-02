@@ -1,0 +1,118 @@
+.lightbox {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--paper);
+  overscroll-behavior: contain;
+}
+
+.lightbox::backdrop {
+  background: rgba(12, 10, 9, 0.92);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.lightbox[open] {
+  display: grid;
+  place-items: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .lightbox[open] .lightbox__inner {
+    animation: lightbox-in var(--dur-med) var(--ease-out);
+  }
+}
+
+@keyframes lightbox-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+  }
+}
+
+.lightbox__inner {
+  display: grid;
+  gap: 16px;
+  justify-items: center;
+  width: 100%;
+  padding: clamp(12px, 3vw, 32px);
+  pointer-events: none;
+}
+
+.lightbox__inner > * {
+  pointer-events: auto;
+}
+
+.lightbox__top,
+.lightbox__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: min(100%, 1100px);
+}
+
+.lightbox__category {
+  font-size: var(--text-small);
+  color: var(--accent-light);
+}
+
+.lightbox__title {
+  font-size: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: var(--tracking-heading);
+  line-height: 1.25;
+}
+
+.lightbox__icon-button {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-button);
+  background: rgba(245, 241, 232, 0.05);
+  color: var(--paper);
+  cursor: pointer;
+}
+
+.lightbox__icon-button:hover {
+  background: rgba(245, 241, 232, 0.12);
+}
+
+.lightbox__counter {
+  font-size: var(--text-small);
+  color: var(--muted);
+}
+
+/* Fit the photo inside the viewport while keeping its aspect ratio. */
+.lightbox__media {
+  --chrome: 190px;
+  width: min(100%, 1100px);
+}
+
+.lightbox__media--landscape {
+  width: min(100%, 1100px, calc((100dvh - var(--chrome)) * 4 / 3));
+}
+
+.lightbox__media--portrait {
+  width: min(100%, 1100px, calc((100dvh - var(--chrome)) * 3 / 4));
+}
+
+.lightbox__media--pair.lightbox__media--portrait {
+  width: min(100%, 1100px, calc((100dvh - var(--chrome)) * 3 / 2));
+}
+
+.lightbox__media--pair.lightbox__media--landscape {
+  width: min(100%, 1100px, calc((100dvh - var(--chrome)) * 8 / 3));
+}
+
+.lightbox__media .compare__frame {
+  border-radius: var(--radius-card);
+}
