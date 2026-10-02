@@ -29,12 +29,18 @@ export function Process() {
           </ol>
 
           <div className="process__foot">
-            <div className="process__tip">
-              <p className="process__tip-title">{t.process.tipTitle}</p>
-              <p>{t.process.tip}</p>
+            <div className="process__notes">
+              <div className="process__note process__note--payment">
+                <p className="process__note-title">{t.process.payment.title}</p>
+                <p>{t.process.payment.body}</p>
+              </div>
+              <div className="process__note">
+                <p className="process__note-title">{t.process.tip.title}</p>
+                <p>{t.process.tip.body}</p>
+              </div>
             </div>
             <a className="button button--light" href={href('contact')}>
-              {t.hero.ctaPrimary}
+              {t.process.cta}
               <ArrowIcon />
             </a>
           </div>

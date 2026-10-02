@@ -60,6 +60,62 @@ describe('locale dictionaries', () => {
   });
 });
 
+describe('process copy', () => {
+  const processStrings = (locale: (typeof LOCALES)[number]) => {
+    const { process } = dictionaries[locale];
+    return [
+      process.eyebrow,
+      process.title,
+      ...process.steps.flatMap((step) => [step.title, step.body]),
+      process.payment.title,
+      process.payment.body,
+      process.tip.title,
+      process.tip.body,
+      process.cta,
+    ];
+  };
+
+  it('has four steps plus payment, tip and CTA copy in every locale', () => {
+    for (const locale of LOCALES) {
+      const { process } = dictionaries[locale];
+      expect(process.steps, locale).toHaveLength(4);
+      for (const value of processStrings(locale)) expect(value.trim(), locale).not.toBe('');
+    }
+  });
+
+  it('does not reuse English process copy in other locales', () => {
+    const en = processStrings('en');
+    for (const locale of LOCALES.filter((l) => l !== 'en')) {
+      processStrings(locale).forEach((value, index) => {
+        expect(value, `${locale}[${index}]`).not.toBe(en[index]);
+      });
+    }
+  });
+
+  it('keeps Chinese process copy free of English words other than PNG', () => {
+    for (const locale of ['zh-Hant', 'zh-Hans'] as const) {
+      for (const value of processStrings(locale)) {
+        expect(value.replace(/PNG/g, ''), locale).not.toMatch(/[a-z]{2,}/i);
+      }
+    }
+  });
+
+  it('keeps Vietnamese process copy in Vietnamese', () => {
+    for (const value of processStrings('vi')) {
+      expect(value).toMatch(/[ăâđêôơưàáảãạèéẻẽẹìíỉĩịòóỏõọùúủũụỳýỷỹỵ]/i);
+    }
+  });
+
+  it('does not publish payment handles or account details', () => {
+    for (const locale of LOCALES) {
+      const { payment } = dictionaries[locale].process;
+      expect(`${payment.title} ${payment.body}`, locale).not.toMatch(
+        /zelle|venmo|paypal|@|\d{4,}/i,
+      );
+    }
+  });
+});
+
 describe('format', () => {
   it('replaces placeholders and leaves unknown ones', () => {
     expect(format('Ảnh {current} / {total}', { current: 2, total: 9 })).toBe('Ảnh 2 / 9');

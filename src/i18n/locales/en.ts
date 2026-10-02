@@ -272,23 +272,34 @@ const en: Dictionary = {
   },
   process: {
     eyebrow: 'How it works',
-    title: 'Three simple steps. No technical knowledge needed.',
+    title: 'Four simple steps. No technical skills needed.',
     steps: [
       {
-        title: 'Send your photo',
-        body: 'Take a picture of the print or scan it, and send the clearest version you have.',
+        title: 'Send your photos',
+        body: 'Photograph or scan your old photos and send the clearest versions you have. I’ll review their condition first.',
       },
       {
-        title: 'I restore it',
-        body: 'The photo is cropped, corrected, restored and colorized as requested.',
+        title: 'Review & quote',
+        body: 'I’ll let you know what can be restored and give you the exact price before I begin. I only start after you approve the quote.',
       },
       {
-        title: 'Receive your file',
-        body: 'Get back a high-quality PNG to keep, share or print again.',
+        title: 'I restore them',
+        body: 'I crop, clean, restore and colorize the photos based on what you need. If a photo needs more involved work, I’ll tell you first.',
+      },
+      {
+        title: 'Review & receive',
+        body: 'You can review the result and request reasonable corrections before receiving the final high-quality PNG files.',
       },
     ],
-    tipTitle: 'Tips for photographing a print with your phone',
-    tip: 'Use good light, hold the phone parallel to the photo, and avoid reflections from lamps on the surface.',
+    payment: {
+      title: 'Payment after quote approval',
+      body: 'For smaller orders, payment is due after you approve the quote and before restoration begins. Larger orders may be split into a deposit and a final payment before delivery.',
+    },
+    tip: {
+      title: 'Tips for photographing old prints',
+      body: 'Use good light, keep your phone parallel to the photograph and avoid glare across the surface.',
+    },
+    cta: 'Send photos for review',
   },
   philosophy: {
     eyebrow: 'My approach',

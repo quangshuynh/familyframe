@@ -272,20 +272,34 @@ const vi = {
   },
   process: {
     eyebrow: 'Các bước',
-    title: 'Ba bước đơn giản, không cần rành kỹ thuật.',
+    title: 'Bốn bước đơn giản, không cần rành kỹ thuật.',
     steps: [
-      { title: 'Gửi ảnh', body: 'Chụp hoặc scan ảnh cũ và gửi bản rõ nhất bạn có.' },
       {
-        title: 'Tôi phục hồi',
-        body: 'Tôi cắt, chỉnh, phục hồi và tô màu theo yêu cầu của bạn.',
+        title: 'Gửi ảnh',
+        body: 'Chụp hoặc scan ảnh cũ rồi gửi bản rõ nhất bạn có. Tôi sẽ xem tình trạng ảnh trước.',
       },
       {
-        title: 'Nhận file',
-        body: 'Nhận lại ảnh PNG chất lượng cao để lưu, chia sẻ hoặc in lại.',
+        title: 'Xem ảnh & báo giá',
+        body: 'Tôi sẽ cho bạn biết ảnh làm được tới đâu và báo giá trước khi bắt đầu. Chỉ khi bạn đồng ý thì tôi mới làm.',
+      },
+      {
+        title: 'Phục hồi ảnh',
+        body: 'Tôi cắt, chỉnh, phục hồi và tô màu theo yêu cầu của bạn. Nếu ảnh cần xử lý thêm chi tiết, tôi sẽ nói trước.',
+      },
+      {
+        title: 'Xem lại & nhận file',
+        body: 'Bạn được xem lại kết quả và yêu cầu chỉnh những chi tiết chưa đúng trước khi nhận file PNG chất lượng cao.',
       },
     ],
-    tipTitle: 'Mẹo khi chụp ảnh bằng điện thoại',
-    tip: 'Chụp ở chỗ đủ sáng, để điện thoại song song với tấm ảnh và tránh bị lóa đèn trên mặt ảnh.',
+    payment: {
+      title: 'Thanh toán sau khi đồng ý giá',
+      body: 'Với đơn nhỏ, thanh toán sau khi bạn đồng ý báo giá và trước khi tôi bắt đầu làm. Với đơn lớn, tôi có thể chia thành đặt trước và thanh toán phần còn lại trước khi giao file cuối.',
+    },
+    tip: {
+      title: 'Mẹo khi chụp ảnh bằng điện thoại',
+      body: 'Chụp ở chỗ đủ sáng, để điện thoại song song với tấm ảnh và tránh bị lóe đèn trên mặt ảnh.',
+    },
+    cta: 'Gửi ảnh để xem trước',
   },
   philosophy: {
     eyebrow: 'Cách tôi làm',
