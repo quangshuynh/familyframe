@@ -5,6 +5,7 @@ import { useI18n } from '../i18n/context';
 import { BeforeAfterSlider } from './BeforeAfterSlider';
 import { ChevronIcon, CloseIcon } from './icons';
 import { PairDiptych } from './PairDiptych';
+import { TechniqueList } from './TechniqueList';
 import './Lightbox.css';
 
 type Props = {
@@ -51,6 +52,8 @@ export function Lightbox({ items, index, onChange }: Props) {
   };
 
   const pair = item ? t.pairs[item.id] : null;
+  // Only some pairs carry a description of the work done.
+  const description = pair && 'description' in pair ? String(pair.description) : null;
   const titleId = 'lightbox-title';
 
   return (
@@ -66,11 +69,13 @@ export function Lightbox({ items, index, onChange }: Props) {
       {item && pair && (
         <div className="lightbox__inner">
           <div className="lightbox__top">
-            <div>
+            <div className="lightbox__heading">
               <p className="lightbox__category">{t.gallery.categories[item.category]}</p>
               <h2 id={titleId} className="lightbox__title">
                 {pair.title}
               </h2>
+              {description && <p className="lightbox__description">{description}</p>}
+              <TechniqueList item={item} className="lightbox__techniques" />
             </div>
             <button
               type="button"
@@ -82,17 +87,30 @@ export function Lightbox({ items, index, onChange }: Props) {
             </button>
           </div>
 
+          {/* One restoration at a time: a slider when the photos line up, otherwise both panels. */}
           <div
-            className={`lightbox__media lightbox__media--${item.orientation}${item.aligned ? '' : ' lightbox__media--pair'}`}
+            className={[
+              'lightbox__media',
+              `lightbox__media--${item.orientation}`,
+              `lightbox__media--${item.presentation}`,
+              (description || item.techniques) && 'lightbox__media--detailed',
+            ]
+              .filter(Boolean)
+              .join(' ')}
           >
-            {item.aligned ? (
+            {item.presentation === 'slider' ? (
               <BeforeAfterSlider
                 key={item.id}
                 item={item}
                 sizes="(min-width: 1024px) 70vw, 100vw"
               />
             ) : (
-              <PairDiptych key={item.id} item={item} sizes="(min-width: 768px) 45vw, 50vw" />
+              <PairDiptych
+                key={item.id}
+                item={item}
+                sizes="(min-width: 640px) 45vw, 100vw"
+                className="lightbox__diptych"
+              />
             )}
           </div>
 

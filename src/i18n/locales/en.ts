@@ -66,6 +66,15 @@ const en: Dictionary = {
       rephotographed: 'Phone photo of a print',
       damaged: 'Damage repair',
     },
+    techniques: {
+      colorization: 'Colorization',
+      fadeRestoration: 'Fade restoration',
+      recrop: 'Recropping',
+      personRemoval: 'Person removal',
+      objectRemoval: 'Object removal',
+      eyeCorrection: 'Eye correction',
+      cleanup: 'Cleanup',
+    },
   },
   lightbox: {
     label: 'Larger view',
@@ -130,14 +139,20 @@ const en: Dictionary = {
     '14_two_girls_studio': {
       title: 'Two girls at the studio',
       alt: 'two girls in matching floral outfits standing on a checkered studio floor',
+      description:
+        'Colorized the black-and-white photograph, cleaned the image and removed the distracting object in the upper-right corner.',
     },
     '15_mother_and_child': {
       title: 'Mother and child',
       alt: 'a young woman holding a small child in a blue and white striped shirt',
+      description:
+        "Restored faded color, cleaned the image and gently corrected the child's eye alignment.",
     },
     '16_couple_with_baby': {
       title: 'A young family',
-      alt: 'a young couple holding a baby at home, with a girl in a yellow shirt beside them',
+      alt: 'a young couple holding a baby at home',
+      description:
+        'Restored faded color, recropped the photograph, removed distracting people and centered the family.',
     },
     '17_wedding_closeup': {
       title: 'Bride and groom',

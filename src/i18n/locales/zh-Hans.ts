@@ -67,6 +67,15 @@ const zhHans: Dictionary = {
       rephotographed: '手机翻拍的纸质照片',
       damaged: '损坏修复',
     },
+    techniques: {
+      colorization: '上色',
+      fadeRestoration: '褪色修复',
+      recrop: '重新裁切',
+      personRemoval: '移除多余人物',
+      objectRemoval: '移除杂物',
+      eyeCorrection: '眼神修正',
+      cleanup: '清洁修整',
+    },
   },
   lightbox: {
     label: '查看大图',
@@ -131,14 +140,17 @@ const zhHans: Dictionary = {
     '14_two_girls_studio': {
       title: '照相馆里的两个女孩',
       alt: '两个穿同款花衣的小女孩站在照相馆的格子地砖上',
+      description: '为黑白照片上色，清洁画面，并移除右上角分散注意力的物件。',
     },
     '15_mother_and_child': {
       title: '妈妈和孩子',
       alt: '年轻女子抱着穿蓝白条纹衫的小孩',
+      description: '修复褪色，清洁画面，并轻微调整孩子的眼神，使其更自然对称。',
     },
     '16_couple_with_baby': {
       title: '小家庭',
-      alt: '年轻夫妇在家中抱着婴儿，旁边站着穿黄衣服的小女孩',
+      alt: '年轻夫妇在家中抱着婴儿',
+      description: '修复褪色，重新裁切构图，移除背景中多余的人物，让一家人位于画面中央。',
     },
     '17_wedding_closeup': {
       title: '新娘和新郎',

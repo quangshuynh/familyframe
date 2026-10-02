@@ -68,6 +68,15 @@ const vi = {
       rephotographed: 'Ảnh chụp lại từ ảnh giấy',
       damaged: 'Phục hồi hư hỏng',
     },
+    techniques: {
+      colorization: 'Tô màu',
+      fadeRestoration: 'Phục hồi màu',
+      recrop: 'Cắt lại bố cục',
+      personRemoval: 'Xóa người thừa',
+      objectRemoval: 'Xóa vật thể',
+      eyeCorrection: 'Chỉnh ánh mắt',
+      cleanup: 'Làm sạch ảnh',
+    },
   },
   lightbox: {
     label: 'Xem ảnh lớn',
@@ -132,14 +141,20 @@ const vi = {
     '14_two_girls_studio': {
       title: 'Hai bé gái ở tiệm ảnh',
       alt: 'hai bé gái mặc bộ đồ hoa giống nhau đứng trên nền gạch caro trong tiệm ảnh',
+      description:
+        'Tô màu ảnh đen trắng, làm sạch ảnh và loại bỏ vật thể gây nhiễu ở góc trên bên phải.',
     },
     '15_mother_and_child': {
       title: 'Mẹ và con',
       alt: 'người phụ nữ trẻ bế em bé mặc áo sọc xanh trắng',
+      description:
+        'Phục hồi màu bị phai, làm sạch ảnh và điều chỉnh ánh mắt của bé cho cân đối hơn.',
     },
     '16_couple_with_baby': {
       title: 'Gia đình nhỏ',
-      alt: 'vợ chồng trẻ bế em bé trong nhà, bên cạnh là một bé gái mặc áo vàng',
+      alt: 'vợ chồng trẻ bế em bé đứng trong nhà',
+      description:
+        'Phục hồi màu bị phai, cắt lại bố cục, loại bỏ người thừa trong nền và đưa gia đình vào vị trí trung tâm.',
     },
     '17_wedding_closeup': {
       title: 'Cô dâu và chú rể',
