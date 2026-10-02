@@ -1,7 +1,7 @@
 /**
  * Captures the README screenshots from a running preview server:
- * desktop and mobile first viewports, the before/after gallery, and a
- * full-page desktop JPEG.
+ * desktop and mobile first viewports, the before/after gallery, the
+ * "My approach" section, and a full-page desktop JPEG.
  *
  *   npm run build && npm run preview      # in one terminal
  *   npm run screenshots                   # in another
@@ -97,7 +97,9 @@ await desktop.screenshot({
 // Before/after pairs, desktop: the "More examples" grid, where every card is
 // one original + restored pair sharing a frame.
 const pairs = desktop.locator('.gallery__more');
-await desktop.addStyleTag({ content: '.site-header { visibility: hidden !important; }' });
+await desktop.addStyleTag({
+  content: '.site-header, .skip-link { visibility: hidden !important; }',
+});
 await desktop.screenshot({
   path: file('familyframe-before-after'),
   fullPage: true,
@@ -111,6 +113,9 @@ await desktop.screenshot({
     };
   }),
 });
+
+// "My approach": the whole paper section, desktop.
+await desktop.locator('.philosophy').screenshot({ path: file('familyframe-approach') });
 
 // Mobile: first viewport at 2x
 const mobile = await page({ width: 390, height: 844 }, { mobile: true, scale: 2 });

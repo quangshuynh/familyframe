@@ -33,7 +33,7 @@ const zhHant: Dictionary = {
     eyebrow: '家庭相片修復',
     title: '留住那些無法再影一次的相片。',
     lead: '為舊家庭相片修復、上色及數碼化：無論是黑白相、褪色相，還是隨歲月變舊的紙本相片。',
-    ctaPrimary: '傳送相片，先睇效果',
+    ctaPrimary: '傳相片畀我睇吓',
     ctaSecondary: '睇修復前後',
     chipsLabel: '主要服務',
     chips: ['黑白相上色', '修復褪色及刮痕', '紙本相片數碼化'],
@@ -280,7 +280,7 @@ const zhHant: Dictionary = {
   },
   philosophy: {
     eyebrow: '我的修復方式',
-    title: '保留舊相，而不是把它變成新相。',
+    title: ['保留舊相，', '而不是把它變成新相。'],
     body: '目標不是令相片看起來像今日才影。我會盡量保留原相的面容、構圖、衣着同感覺，同時令相片更乾淨、清晰，更容易保存。',
     notesTitle: '事前要知道的事',
     notes: [
@@ -294,7 +294,7 @@ const zhHant: Dictionary = {
       },
       {
         title: '嚴重損壞需要推斷',
-        body: '相片撕爛或缺失的位置，細節要根據餘下部分重新繪畫。這些地方我會事先同你講。',
+        body: '相片撕爛或缺失的位置，部分細節可能要根據餘下部分重建。這些地方我會事先同你講。',
       },
     ],
   },
@@ -350,14 +350,14 @@ const zhHant: Dictionary = {
     eyebrow: '聯絡',
     title: '有一張想留住的相片嗎？',
     lead: '把相片傳給我。我會先看看，再告訴你可以怎樣修復。',
-    cta: '傳送相片，先睇效果',
+    cta: '傳相片畀我睇吓',
     reassurance: '你暫時唔需要決定任何事。我會先報價，再由你決定做唔做。',
     attachNote: '請在電郵附上相片。用手機影一張清晰的相已經足夠。',
     zalo: '透過 Zalo 聯絡',
     messenger: '透過 Messenger 聯絡',
-    emailSubject: '傳送相片預覽（FamilyFrame）',
+    emailSubject: 'FamilyFrame 舊相修復查詢',
     emailBody:
-      '你好，\n\n我想修復家庭相片，相片已附在這封電郵。\n\n我想要：上色 / 修復 / 數碼化 / 未確定\n其他資料（衫的顏色、想保留的細節等）：\n\n多謝。',
+      'Hi Quang，\n\n我想修復幾張屋企嘅舊相，相片會附喺呢封電郵度。\n\n麻煩你睇吓邊啲可以修復，開始之前話我知大概價錢。\n\n多謝！',
   },
   footer: {
     tagline: '舊家庭相片修復、上色及數碼化。',

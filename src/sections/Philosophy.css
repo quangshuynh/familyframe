@@ -1,4 +1,6 @@
 .philosophy {
+  /* A little tighter than other sections: this one is a single compact block. */
+  padding-block: clamp(64px, 2.5rem + 5vw, 120px);
   color: var(--ink);
   background: var(--paper);
   /* Subtle paper grain via layered gradients, no image request. */
@@ -22,35 +24,59 @@
   outline-color: var(--accent);
 }
 
-.philosophy__eyebrow {
-  color: var(--accent);
-}
-
+/* Mobile: one column in reading order intro → pair → notes. */
 .philosophy__grid {
   display: grid;
-  gap: clamp(40px, 5vw, 64px);
+  gap: 40px;
+}
+
+.philosophy__text {
+  display: contents;
 }
 
 .philosophy__intro {
   display: grid;
-  gap: 22px;
+  gap: 18px;
   align-content: start;
+}
+
+.philosophy__notes {
+  order: 1;
+}
+
+.philosophy__eyebrow {
+  color: var(--accent);
+}
+
+.philosophy__title {
+  font-size: clamp(2rem, 1.45rem + 1.9vw, 2.875rem);
+}
+
+.philosophy__title-line {
+  display: block;
 }
 
 .philosophy__body {
   font-size: var(--text-lead);
   line-height: 1.65;
   color: var(--ink-soft);
-  max-width: 34em;
+  max-width: 36em;
+  text-wrap: pretty;
 }
 
 .philosophy__media {
   align-self: start;
 }
 
+/* Original above restored; both share the 4:3 frame set by PairDiptych. */
+.philosophy__diptych {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+}
+
 .philosophy__diptych .diptych__panel {
   border-radius: var(--radius-card);
-  box-shadow: 0 18px 40px -20px rgba(34, 27, 23, 0.45);
+  box-shadow: 0 18px 40px -22px rgba(34, 27, 23, 0.45);
 }
 
 .philosophy__caption {
@@ -60,7 +86,7 @@
 }
 
 .philosophy__notes-title {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   font-size: var(--text-small);
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -79,37 +105,48 @@
   border-top: 1px solid rgba(34, 27, 23, 0.14);
 }
 
+.philosophy__note:last-child {
+  padding-bottom: 0;
+}
+
 .philosophy__note dt {
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   font-weight: 600;
+  line-height: 1.35;
   letter-spacing: var(--tracking-heading);
 }
 
 .philosophy__note dd {
   margin: 0;
+  max-width: 38em;
+  line-height: 1.6;
+  text-wrap: pretty;
   color: var(--ink-soft);
 }
 
+/* Tablet: the pair sits side by side so it doesn't dominate the screen. */
+@media (min-width: 600px) and (max-width: 1023.98px) {
+  .philosophy__diptych {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Desktop: text column (intro + notes) beside the stacked pair. */
 @media (min-width: 1024px) {
   .philosophy__grid {
-    grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
-    /* Intro takes its natural height; the notes absorb the image's extra height. */
-    grid-template-rows: auto 1fr;
-    column-gap: clamp(48px, 6vw, 96px);
+    grid-template-columns: minmax(0, 1fr) minmax(400px, 0.8fr);
+    column-gap: clamp(56px, 6vw, 88px);
+    align-items: start;
   }
 
-  .philosophy__notes {
-    align-self: start;
+  .philosophy__text {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
   }
 
   .philosophy__media {
-    grid-row: span 2;
-    grid-column: 2;
-    grid-row-start: 1;
-  }
-
-  .philosophy__diptych {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 12px;
+    /* Line the first photo up with the heading rather than the eyebrow. */
+    margin-top: 34px;
   }
 }

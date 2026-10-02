@@ -33,7 +33,7 @@ const zhHans: Dictionary = {
     eyebrow: '家庭照片修复',
     title: '留住那些无法重拍的照片。',
     lead: '为老家庭照片修复、上色和数字化：无论是黑白照片、褪色照片，还是随岁月变旧的纸质照片。',
-    ctaPrimary: '发送照片，先看效果',
+    ctaPrimary: '发送照片看看',
     ctaSecondary: '查看修复前后',
     chipsLabel: '主要服务',
     chips: ['黑白照片上色', '修复褪色和划痕', '纸质照片数字化'],
@@ -280,7 +280,7 @@ const zhHans: Dictionary = {
   },
   philosophy: {
     eyebrow: '我的修复方式',
-    title: '保留老照片，而不是把它变成新照片。',
+    title: ['保留老照片，', '而不是把它变成新照片。'],
     body: '目标不是让照片看起来像今天才拍的。我会尽量保留原照片的面容、构图、衣着和感觉，同时让照片更干净、清晰，也更容易保存。',
     notesTitle: '事先需要了解的',
     notes: [
@@ -294,7 +294,7 @@ const zhHans: Dictionary = {
       },
       {
         title: '严重损坏需要推断',
-        body: '照片撕裂或缺失的地方，细节需要根据剩余部分重新绘制。这些地方我会提前告诉你。',
+        body: '照片撕裂或缺失的地方，部分细节可能需要根据剩余部分重建。这些地方我会提前告诉你。',
       },
     ],
   },
@@ -347,14 +347,14 @@ const zhHans: Dictionary = {
     eyebrow: '联系',
     title: '有一张想留住的照片吗？',
     lead: '把照片发给我。我会先看看，再告诉你可以怎样修复。',
-    cta: '发送照片，先看效果',
+    cta: '发送照片看看',
     reassurance: '你现在不需要做任何决定。我先报价，再由你决定是否开始。',
     attachNote: '请在邮件中附上照片。用手机拍一张清晰的照片就够了。',
     zalo: '通过 Zalo 联系',
     messenger: '通过 Messenger 联系',
-    emailSubject: '发送照片预览（FamilyFrame）',
+    emailSubject: 'FamilyFrame 老照片修复咨询',
     emailBody:
-      '你好，\n\n我想修复家庭照片，照片已附在这封邮件中。\n\n我想要：上色 / 修复 / 数字化 / 还不确定\n其他信息（衣服颜色、想保留的细节等）：\n\n谢谢。',
+      'Quang 你好，\n\n我想修复几张家里的老照片，照片会附在这封邮件里。\n\n麻烦你看看哪些可以修复，并在开始之前告诉我大概的价格。\n\n谢谢！',
   },
   footer: {
     tagline: '老家庭照片修复、上色与数字化。',

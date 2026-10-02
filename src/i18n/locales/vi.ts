@@ -15,7 +15,7 @@ const vi = {
     gallery: 'Trước & sau',
     services: 'Dịch vụ',
     pricing: 'Bảng giá',
-    process: 'Cách hoạt động',
+    process: 'Các bước',
     faq: 'Câu hỏi',
     cta: 'Gửi ảnh',
     openMenu: 'Mở menu',
@@ -43,16 +43,16 @@ const vi = {
   gallery: {
     eyebrow: 'Ví dụ đã làm',
     title: 'Trước và sau',
-    lead: 'Mỗi tấm ảnh được xử lý riêng, giữ lại khuôn mặt, bố cục và cảm giác của ảnh gốc.',
+    lead: 'Tấm nào cũng được làm riêng, giữ lại khuôn mặt, bố cục và cảm giác của ảnh gốc.',
     hint: 'Kéo thanh ở giữa ảnh sang trái hoặc phải để so sánh.',
     immersive: {
       eyebrow: 'Tô màu ảnh đen trắng',
       title: 'Màu sắc trở lại, nhưng tấm ảnh vẫn là của ngày ấy.',
-      body: 'Nắng trên mái lá, bức tường đá, hoa văn trên tà áo. Màu được dựng lại theo từng vùng để hợp với ánh sáng trong ảnh, thay vì phủ một lớp màu đồng đều.',
+      body: 'Nắng trên mái lá, bức tường đá, hoa văn trên tà áo. Màu được tô lại theo từng vùng cho hợp với ánh sáng trong ảnh, chứ không phủ một lớp màu chung chung.',
     },
     rephoto: {
       title: 'Bắt đầu từ một tấm ảnh chụp bằng điện thoại',
-      body: 'Nhiều ảnh gửi đến là ảnh chụp lại, còn thấy mép giấy và mặt bàn. Ảnh được cắt gọn, chỉnh thẳng rồi mới phục hồi.',
+      body: 'Nhiều người gửi ảnh chụp lại bằng điện thoại, còn thấy mép giấy với mặt bàn. Tôi cắt gọn, chỉnh thẳng rồi mới phục hồi.',
     },
     more: {
       title: 'Thêm ví dụ',
@@ -141,20 +141,18 @@ const vi = {
     '14_two_girls_studio': {
       title: 'Hai bé gái ở tiệm ảnh',
       alt: 'hai bé gái mặc bộ đồ hoa giống nhau đứng trên nền gạch caro trong tiệm ảnh',
-      description:
-        'Tô màu ảnh đen trắng, làm sạch ảnh và loại bỏ vật thể gây nhiễu ở góc trên bên phải.',
+      description: 'Tô màu ảnh đen trắng, làm sạch ảnh và xóa vật thừa ở góc trên bên phải.',
     },
     '15_mother_and_child': {
       title: 'Mẹ và con',
       alt: 'người phụ nữ trẻ bế em bé mặc áo sọc xanh trắng',
-      description:
-        'Phục hồi màu bị phai, làm sạch ảnh và điều chỉnh ánh mắt của bé cho cân đối hơn.',
+      description: 'Phục hồi màu bị phai, làm sạch ảnh và chỉnh lại ánh mắt của bé cho cân hơn.',
     },
     '16_couple_with_baby': {
       title: 'Gia đình nhỏ',
       alt: 'vợ chồng trẻ bế em bé đứng trong nhà',
       description:
-        'Phục hồi màu bị phai, cắt lại bố cục, loại bỏ người thừa trong nền và đưa gia đình vào vị trí trung tâm.',
+        'Phục hồi màu bị phai, cắt lại bố cục, xóa người thừa phía sau và đưa gia đình vào giữa ảnh.',
     },
     '17_wedding_closeup': {
       title: 'Cô dâu và chú rể',
@@ -227,12 +225,12 @@ const vi = {
   pricing: {
     eyebrow: 'Bảng giá',
     title: 'Giá rõ ràng, báo trước khi làm.',
-    lead: 'Giá chính xác có thể thay đổi tùy tình trạng ảnh. Tôi sẽ xem ảnh trước và báo giá trước khi làm.',
+    lead: 'Giá còn tùy tình trạng ảnh. Tôi sẽ xem ảnh và báo giá trước khi làm.',
     plans: {
       standard: {
         name: 'Tiêu chuẩn',
         unit: '/ ảnh',
-        summary: 'Phù hợp với phần lớn ảnh gia đình cũ.',
+        summary: 'Hợp với hầu hết ảnh gia đình cũ.',
         features: [
           'Tô màu hoặc phục hồi cơ bản',
           'Chỉnh sáng và màu',
@@ -244,7 +242,7 @@ const vi = {
       advanced: {
         name: 'Nâng cao',
         unit: '/ ảnh',
-        summary: 'Cho những ảnh cần làm thủ công nhiều hơn.',
+        summary: 'Cho những ảnh cần làm tay kỹ hơn.',
         features: [
           'Ảnh hư hỏng nhiều',
           'Xóa vật thể',
@@ -269,17 +267,17 @@ const vi = {
     forLabel: 'Dành cho',
     assuranceTitle: 'Không có phí bất ngờ.',
     assuranceBody:
-      'Bạn biết giá trước khi tôi bắt đầu. Việc thanh toán chỉ diễn ra sau khi hai bên đã thống nhất công việc.',
-    cta: 'Gửi ảnh để báo giá',
+      'Bạn biết giá trước khi tôi bắt đầu làm. Hai bên thống nhất xong rồi mới tính chuyện thanh toán.',
+    cta: 'Gửi ảnh để tôi báo giá',
   },
   process: {
-    eyebrow: 'Cách hoạt động',
-    title: 'Ba bước đơn giản, không cần biết gì về kỹ thuật.',
+    eyebrow: 'Các bước',
+    title: 'Ba bước đơn giản, không cần rành kỹ thuật.',
     steps: [
       { title: 'Gửi ảnh', body: 'Chụp hoặc scan ảnh cũ và gửi bản rõ nhất bạn có.' },
       {
         title: 'Tôi phục hồi',
-        body: 'Ảnh được cắt, chỉnh, phục hồi và tô màu tùy theo yêu cầu.',
+        body: 'Tôi cắt, chỉnh, phục hồi và tô màu theo yêu cầu của bạn.',
       },
       {
         title: 'Nhận file',
@@ -287,25 +285,26 @@ const vi = {
       },
     ],
     tipTitle: 'Mẹo khi chụp ảnh bằng điện thoại',
-    tip: 'Chụp ở nơi đủ sáng, đặt điện thoại song song với tấm ảnh và tránh đèn phản chiếu trên mặt ảnh.',
+    tip: 'Chụp ở chỗ đủ sáng, để điện thoại song song với tấm ảnh và tránh bị lóa đèn trên mặt ảnh.',
   },
   philosophy: {
-    eyebrow: 'Cách tôi phục hồi',
-    title: 'Giữ lại ảnh cũ, không biến nó thành ảnh mới.',
-    body: 'Mục tiêu không phải làm ảnh trông như được chụp hôm nay. Tôi cố giữ khuôn mặt, bố cục, quần áo và cảm giác của ảnh gốc, đồng thời làm cho ảnh sạch, rõ và dễ lưu giữ hơn.',
-    notesTitle: 'Vài điều nên biết trước',
+    eyebrow: 'Cách tôi làm',
+    /** One sentence per line on wider screens. */
+    title: ['Giữ lại tấm ảnh cũ.', 'Đừng biến nó thành một tấm ảnh mới.'],
+    body: 'Mục tiêu không phải là làm cho ảnh nhìn như mới chụp hôm nay. Tôi cố giữ lại khuôn mặt, bố cục, quần áo và cảm giác của ảnh gốc, rồi làm ảnh sạch hơn, rõ hơn và dễ lưu giữ hơn.',
+    notesTitle: 'Có vài điều nên biết',
     notes: [
       {
-        title: 'Màu sắc là sự dựng lại',
-        body: 'Ảnh đen trắng không lưu lại thông tin màu. Màu được chọn dựa trên ánh sáng, chất liệu và bối cảnh trong ảnh để trông tự nhiên và hợp lý.',
+        title: 'Màu sắc là phần được phục dựng',
+        body: 'Ảnh đen trắng không ghi lại màu thật. Tôi chọn màu dựa trên ánh sáng, chất liệu, quần áo và bối cảnh trong ảnh để kết quả nhìn tự nhiên và hợp lý.',
       },
       {
-        title: 'Không phải màu nào cũng biết chắc',
-        body: 'Màu áo hay màu tường ngày ấy đôi khi không thể biết chính xác. Nếu gia đình còn nhớ, bạn cứ cho tôi biết để tôi chỉnh theo.',
+        title: 'Có những màu không thể biết chính xác',
+        body: 'Màu thật của áo, tường hoặc đồ vật đôi khi không còn cách nào biết chắc. Nếu gia đình còn nhớ, cứ nói tôi biết để tôi chỉnh lại cho gần đúng hơn.',
       },
       {
-        title: 'Chỗ hư nặng cần diễn giải',
-        body: 'Ở những vùng bị rách hoặc mất hẳn, chi tiết được vẽ lại dựa trên phần còn lại của ảnh. Tôi sẽ nói trước với bạn những chỗ như vậy.',
+        title: 'Ảnh hư nhiều sẽ cần phục dựng thêm chi tiết',
+        body: 'Nếu ảnh bị rách, mất góc hoặc mất chi tiết, một số phần sẽ phải làm lại dựa trên những gì còn thấy được. Tôi sẽ nói rõ trước nếu ảnh cần xử lý kiểu này.',
       },
     ],
   },
@@ -315,11 +314,11 @@ const vi = {
     items: [
       {
         title: 'Xử lý cẩn thận',
-        body: 'Mỗi tấm ảnh được xem kỹ và kiểm tra lại trước khi gửi cho bạn.',
+        body: 'Tấm nào tôi cũng xem kỹ và kiểm tra lại trước khi gửi cho bạn.',
       },
       {
         title: 'Không đăng khi chưa được phép',
-        body: 'Ảnh của bạn chỉ được dùng làm ví dụ khi bạn đồng ý.',
+        body: 'Tôi chỉ dùng ảnh của bạn làm ví dụ khi bạn đồng ý.',
       },
       {
         title: 'Có thể yêu cầu chỉnh lại',
@@ -327,7 +326,7 @@ const vi = {
       },
       {
         title: 'Ảnh gốc vẫn còn nguyên',
-        body: 'File bạn gửi không bị thay thế hay ghi đè. Bạn nhận một file mới, riêng biệt.',
+        body: 'Tôi không sửa đè lên file bạn gửi. Bạn sẽ nhận lại một file mới, để riêng.',
       },
     ],
   },
@@ -337,50 +336,52 @@ const vi = {
     items: [
       {
         q: 'Ảnh chụp bằng điện thoại có làm được không?',
-        a: 'Có. Miễn là ảnh đủ rõ, tôi có thể cắt bỏ nền xung quanh, chỉnh thẳng và làm thành một file ảnh sạch.',
+        a: 'Được. Miễn ảnh đủ rõ là tôi cắt bỏ nền xung quanh, chỉnh thẳng và làm thành một file ảnh sạch.',
       },
       {
-        q: 'Ảnh đen trắng có thể tô màu không?',
-        a: 'Có. Cả ảnh đen trắng và ảnh đã ngả nâu đều tô màu được. Màu được dựng lại sao cho tự nhiên và hợp với ánh sáng trong ảnh.',
+        q: 'Ảnh đen trắng tô màu được không?',
+        a: 'Được. Ảnh đen trắng hay ảnh đã ngả nâu đều tô màu được. Tôi chọn màu sao cho tự nhiên và hợp với ánh sáng trong ảnh.',
       },
       {
         q: 'Ảnh bị rách hoặc phai màu có phục hồi được không?',
-        a: 'Tùy mức độ hư hỏng. Phần lớn vết phai, vết xước và nếp gấp đều xử lý được. Bạn nên gửi ảnh để tôi xem trước.',
+        a: 'Ảnh làm được tới đâu còn tùy tình trạng ảnh. Phần lớn vết phai, vết xước và nếp gấp đều xử lý được. Bạn cứ gửi ảnh để tôi xem trước nha.',
       },
       {
         q: 'Màu có giống 100% lúc chụp không?',
-        a: 'Không phải lúc nào cũng xác định được màu gốc chính xác. Mục tiêu là tạo màu tự nhiên và hợp lý dựa trên thông tin có trong ảnh.',
+        a: 'Không phải lúc nào cũng biết chắc màu gốc. Tôi chọn màu sao cho tự nhiên và hợp lý, dựa trên những gì còn thấy trong ảnh.',
       },
       {
-        q: 'Tôi nhận file gì?',
-        a: 'File PNG chất lượng cao, phù hợp để lưu trữ, chia sẻ hoặc mang đi in.',
+        q: 'Tôi sẽ nhận file gì?',
+        a: 'File PNG chất lượng cao, để lưu, chia sẻ hay đem đi in đều được.',
       },
       {
-        q: 'Có thể làm nhiều ảnh cùng lúc không?',
-        a: 'Có. Gói 10 ảnh có giá $100. Nếu bạn có nhiều ảnh hơn, cứ gửi để tôi xem và báo giá.',
+        q: 'Làm nhiều ảnh một lần được không?',
+        a: 'Được. Gói 10 ảnh giá $100. Nếu bạn có nhiều ảnh hơn, cứ gửi để tôi xem và báo giá.',
       },
       {
         q: 'Bao lâu thì xong?',
-        a: 'Tùy số lượng và độ phức tạp của ảnh. Sau khi xem ảnh, tôi sẽ báo thời gian cụ thể trước khi bắt đầu.',
+        a: 'Còn tùy số lượng và độ khó của ảnh. Xem ảnh xong, tôi sẽ báo thời gian cụ thể trước khi bắt đầu.',
       },
       {
-        q: 'Tôi có thể yêu cầu chỉnh sửa lại không?',
-        a: 'Được. Nếu có lỗi rõ ràng về phục hồi hoặc màu sắc, chẳng hạn màu da hay màu áo chưa đúng, tôi sẽ chỉnh lại cho bạn.',
+        q: 'Tôi nhờ chỉnh lại được không?',
+        a: 'Được. Nếu chỗ phục hồi hay màu sắc chưa đúng, như màu da hay màu áo, bạn cứ nói, tôi chỉnh lại cho.',
       },
     ],
   },
   contact: {
     eyebrow: 'Liên hệ',
-    title: 'Có một tấm ảnh bạn muốn giữ lại?',
-    lead: 'Gửi ảnh cho tôi. Tôi sẽ xem trước và cho bạn biết ảnh có thể phục hồi như thế nào.',
+    title: 'Bạn có tấm ảnh nào muốn giữ lại không?',
+    lead: 'Gửi ảnh cho tôi xem trước. Tôi sẽ cho bạn biết ảnh phục hồi được tới đâu.',
     cta: 'Gửi ảnh để xem trước',
-    reassurance: 'Bạn chưa cần quyết định gì. Tôi báo giá trước, rồi bạn chọn có làm hay không.',
-    attachNote: 'Đính kèm ảnh vào email. Một bản chụp rõ bằng điện thoại là đủ.',
+    reassurance:
+      'Bạn chưa cần quyết định gì hết. Tôi báo giá trước, rồi bạn coi có muốn làm hay không.',
+    attachNote: 'Đính kèm ảnh vào email. Ảnh chụp bằng điện thoại, miễn rõ là được.',
     zalo: 'Nhắn qua Zalo',
     messenger: 'Nhắn qua Messenger',
-    emailSubject: 'Gửi ảnh để xem trước (FamilyFrame)',
+    /** Pre-filled draft for the main CTA, built by buildMailtoHref. */
+    emailSubject: 'Yêu cầu phục hồi ảnh FamilyFrame',
     emailBody:
-      'Xin chào,\n\nTôi muốn phục hồi ảnh gia đình và đã đính kèm ảnh trong email này.\n\nTôi muốn: tô màu / phục hồi / số hóa / chưa rõ\nGhi chú thêm (màu áo, chi tiết cần giữ...):\n\nCảm ơn bạn.',
+      'Chào Quang,\n\nTôi muốn nhờ phục hồi một số ảnh gia đình cũ. Tôi sẽ đính kèm ảnh trong email này.\n\nBạn xem giúp tôi ảnh có thể phục hồi như thế nào và báo giá trước khi làm nha.\n\nCảm ơn!',
   },
   footer: {
     tagline: 'Phục hồi, tô màu và số hóa ảnh gia đình cũ.',
